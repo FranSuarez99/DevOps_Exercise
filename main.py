@@ -46,4 +46,4 @@ def delete_item(item_id: int, item: Item):
 def save_item(item: Item):
     url = 'https://630287099eb72a839d7105f1.mockapi.io/items'
     new_item = requests.post(url, json = item.json(), timeout =5)
-    return new_item
+    print(item.json())
