@@ -19,6 +19,10 @@ def read_root():
     return {"items": response.json() }
 
 
+@app.get("/items")
+def read_root():
+    return [{"id": 1}, {"id": 2}]
+
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
@@ -31,6 +35,8 @@ def update_item(item_id: int, item: Item):
 def delete_item(item_id: int, item: Item):
     return Item.text
 
-@app.post("/items/{item_id}")
-def post_item(item_id: int, item: Item):
-    return {"item_name": item.name, "item_id": item_id}
+@app.post("/items/")
+def save_item(item: Item):
+    url = 'https://630287099eb72a839d7105f1.mockapi.io/items'
+    item = requests.post(url, json = Item.json())
+    return item
