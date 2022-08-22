@@ -47,3 +47,4 @@ def save_item(item: Item):
     url = 'https://630287099eb72a839d7105f1.mockapi.io/items'
     new_item = requests.post(url, json = item.json(), timeout =5)
     print(item.json())
+    return new_item.json()
