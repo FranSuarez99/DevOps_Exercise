@@ -25,7 +25,7 @@ def read_root():
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
-    read_item = requests.get(url = url + '/' + str(item_id), params = {"id": item_id})
+    read_item = requests.get(url = url + '/' + str(item_id))
     #return {"item_id": item_id, "q": q}
     return{"items": read_item.json()}
 
