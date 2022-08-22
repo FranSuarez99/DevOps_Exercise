@@ -40,11 +40,11 @@ def update_item(item_id: int, item: Item):
 def delete_item(item_id: int, item: Item):
     url = 'https://630287099eb72a839d7105f1.mockapi.io/items'
     delete_item = requests.delete(url, json = item.json(), timeout =5)
-    return Item.text
+    return Item.text()
 
 @app.post("/items/")
 def save_item(item: Item):
     url = 'https://630287099eb72a839d7105f1.mockapi.io/items'
     new_item = requests.post(url, json = item.json(), timeout =5)
     print(item.json())
-    return new_item.json()
+    return new_item.text()
