@@ -37,6 +37,8 @@ def update_item(item_id: int, item: Item):
 
 @app.delete("/items/{item_id}")
 def delete_item(item_id: int, item: Item):
+    url = 'https://630287099eb72a839d7105f1.mockapi.io/items'
+    delete_item = requests.delete(url, json = item.json(), timeout =5)
     return Item.text
 
 @app.post("/items/")
