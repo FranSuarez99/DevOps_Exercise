@@ -38,5 +38,5 @@ def delete_item(item_id: int, item: Item):
 @app.post("/items/")
 def save_item(item: Item):
     url = 'https://630287099eb72a839d7105f1.mockapi.io/items'
-    item = requests.post(url, json = Item.json())
-    return item
+    new_item = requests.post(url, json = Item.json())
+    return new_item
