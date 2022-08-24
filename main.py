@@ -77,6 +77,10 @@ def read_root():
     response = requests.get(url, {}, timeout=5)
     return {"items": response.json() }
 
+@app.get("/favicon.ico")
+def favicon():
+    return {"Hello": "World"}
+
 @app.get("/log_now")
 def log_now():
     log.debug("/api/log_now starts")
