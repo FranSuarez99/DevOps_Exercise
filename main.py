@@ -71,7 +71,7 @@ class Item(BaseModel):
 app = FastAPI()
 log = logging.getLogger("simple_example")
 
-app.get("/")
+@app.get("/")
 def read_root():
     url = 'https://630287099eb72a839d7105f1.mockapi.io/items'
     response = requests.get(url, {}, timeout=5)
